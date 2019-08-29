@@ -10,19 +10,7 @@ namespace _1SPR.Errado
                 if (string.IsNullOrEmpty(Nome)) throw new System.ArgumentNullException(Nome);
                 if (string.IsNullOrEmpty(Nome)) throw new System.ArgumentNullException(Descricao);
 
-                using (var conn = new SqlConnection())
-                {
-                    var command = new SqlCommand
-                    {
-                        CommandText = "INSERT INTO PRODUTO(Nome,Descricao) VALUES (@nome,@descricao)"
-                    };
-                    command.Parameters.AddWithValue("Nome",Nome);
-                    command.Parameters.AddWithValue("descricao",Descricao);
-
-                    conn.Open();
-                    command.ExecuteNonQuery();
-                    conn.Close();
-                }
+                
             }
             catch (System.Exception ex)
             {
